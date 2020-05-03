@@ -3,3 +3,12 @@ body {
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   margin: 0px;
 }
+
+.info {
+  width: 100%;
+  text-align: center;
+}
+
+.arena {
+  margin-top: 5em;
+}

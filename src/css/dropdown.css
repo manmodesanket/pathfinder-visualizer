@@ -1,7 +1,9 @@
 .dropdown {
-  height: 3em;
+  height: 2.5em;
   width: 8em;
-  border-radius: 1em;
+  border-radius: 0.7em;
+  background-color: aqua;
+  font-size: 1.05em;
 }
 
 .option {

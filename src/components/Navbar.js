@@ -7,7 +7,7 @@ const Navbar = () => {
   const [algorithm, AlgorithmDropDown] = useDropdown("Dijiskstra", ALGORITHMS);
   return (
     <nav className="navbar">
-      <div className="navitem">
+      <div>
         <h1>Pathfinder Visualizer</h1>
       </div>
       <div className="navitem">
