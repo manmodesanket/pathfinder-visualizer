@@ -1,14 +1,17 @@
 import React from "react";
+import useDropdown from "./useDropdown";
 import "../css/navbar.css";
 
 const Navbar = () => {
+  const ALGORITHMS = ["Dijikstra", "Depth-First", "Breadth-First"];
+  const [algorithm, AlgorithmDropDown] = useDropdown("Dijiskstra", ALGORITHMS);
   return (
     <nav className="navbar">
       <div className="navitem">
         <h1>Pathfinder Visualizer</h1>
       </div>
       <div className="navitem">
-        <h2>Algorithm</h2>
+        <AlgorithmDropDown />
       </div>
       <div className="navitem">
         <button className="btn">

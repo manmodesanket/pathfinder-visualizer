@@ -1,0 +1,13 @@
+.dropdown {
+  height: 3em;
+  width: 8em;
+  border-radius: 1em;
+}
+
+.option {
+  height: 4em;
+  width: 10em;
+  border-radius: 1em;
+  color: aliceblue;
+  background-color: rgb(4, 10, 44);
+}
