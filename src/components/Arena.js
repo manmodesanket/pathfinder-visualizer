@@ -1,4 +1,5 @@
 import React from "react";
+import Node from "./Node";
 
 class Arena extends React.Component {
   constructor() {
@@ -24,7 +25,13 @@ class Arena extends React.Component {
     } else {
       return (
         <div className="arena">
-          <h1>Arena Loaded</h1>
+          {this.state.grid.map((row, i) => (
+            <div key={i}>
+              {row.map((node, nodeIdx) => (
+                <Node key={nodeIdx} row={row}></Node>
+              ))}
+            </div>
+          ))}
         </div>
       );
     }
