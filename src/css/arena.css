@@ -1,0 +1,8 @@
+.arena {
+  margin-left: 7em 0 0;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}

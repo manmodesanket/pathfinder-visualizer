@@ -10,5 +10,7 @@ body {
 }
 
 .arena {
-  margin-top: 5em;
+  margin-top: 4em;
+  margin-left: 2em;
+  margin-right: 2em;
 }

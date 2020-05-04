@@ -7,7 +7,6 @@ class Node extends React.Component {
   }
 
   render() {
-    console.log(this.props.key);
     return <div className="node"></div>;
   }
 }

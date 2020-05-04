@@ -1,5 +1,6 @@
 import React from "react";
 import Node from "./Node";
+import "../css/arena.css";
 
 class Arena extends React.Component {
   constructor() {
@@ -26,10 +27,11 @@ class Arena extends React.Component {
       return (
         <div className="arena">
           {this.state.grid.map((row, i) => (
-            <div key={i}>
-              {row.map((node, nodeIdx) => (
-                <Node key={nodeIdx} row={row}></Node>
-              ))}
+            <div key={i} className="row">
+              {row.map((node, j) => {
+                const { x, y } = node;
+                return <Node key={j}></Node>;
+              })}
             </div>
           ))}
         </div>
