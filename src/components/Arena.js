@@ -2,6 +2,11 @@ import React from "react";
 import Node from "./Node";
 import "../css/arena.css";
 
+const START_ROW = 5;
+const START_COL = 5;
+const DEST_ROW = 10;
+const DEST_COL = 35;
+
 class Arena extends React.Component {
   constructor() {
     super();
@@ -30,7 +35,7 @@ class Arena extends React.Component {
             <div key={i} className="row">
               {row.map((node, j) => {
                 const { x, y } = node;
-                return <Node key={j}></Node>;
+                return <Node key={j} node={node}></Node>;
               })}
             </div>
           ))}
@@ -45,7 +50,16 @@ const getInitialGrid = () => {
   for (let row = 0; row < 20; row++) {
     let currentRow = [];
     for (let col = 0; col < 50; col++) {
-      currentRow.push([row, col]);
+      let node = {
+        row: row,
+        col: col,
+        isSelected: false,
+        isStart: row === START_ROW && col === START_COL,
+        isEnd: row === DEST_ROW && col === DEST_COL,
+        isVisited: false,
+        previousNull: false,
+      };
+      currentRow.push(node);
     }
     newGrid.push(currentRow);
   }

@@ -3,3 +3,15 @@
   height: 1.6em;
   outline: 1px solid rgb(175, 216, 248);
 }
+
+.start {
+  background-color: green;
+}
+
+.end {
+  background-color: blueviolet;
+}
+
+.visited {
+  background-color: skyblue;
+}

@@ -7,7 +7,16 @@ class Node extends React.Component {
   }
 
   render() {
-    return <div className="node"></div>;
+    const {
+      row,
+      col,
+      isStart,
+      isEnd,
+      isVisited,
+      previousNull,
+    } = this.props.node;
+    let class1 = isVisited ? "visited" : isStart ? "start" : isEnd ? "end" : "";
+    return <div className={`node ${class1}`}></div>;
   }
 }
 
