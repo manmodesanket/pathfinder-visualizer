@@ -42,10 +42,10 @@ class Arena extends React.Component {
 
 const getInitialGrid = () => {
   let newGrid = [];
-  for (let col = 0; col < 20; col++) {
+  for (let row = 0; row < 20; row++) {
     let currentRow = [];
-    for (let row = 0; row < 50; row++) {
-      currentRow.push([col, row]);
+    for (let col = 0; col < 50; col++) {
+      currentRow.push([row, col]);
     }
     newGrid.push(currentRow);
   }
