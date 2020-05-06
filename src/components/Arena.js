@@ -17,7 +17,7 @@ class Arena extends React.Component {
           {this.props.grid.map((row, i) => (
             <div key={i} className="row">
               {row.map((node, j) => {
-                const { x, y } = node;
+                //const { x, y } = node;
                 return <Node key={j} node={node}></Node>;
               })}
             </div>

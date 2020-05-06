@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Arena from "./components/Arena";
 import Info from "./components/Info";
-import Navbar from "./components/Navbar";
+import dijkstraAlgo from "./algorithms/dijkstra";
 import "./css/styles.css";
 
 const START_ROW = 5;
@@ -16,6 +16,7 @@ class App extends React.Component {
     this.state = {
       grid: [],
     };
+    this.dijkstra = this.dijkstra.bind(this);
   }
   componentDidMount() {
     const newGrid = getInitialGrid();
@@ -23,11 +24,26 @@ class App extends React.Component {
       grid: [...newGrid],
     });
   }
+  dijkstra() {
+    const grid = this.state.grid;
+    const START_NODE = grid[START_ROW][START_COL];
+    const FINAL_NODE = grid[DEST_ROW][DEST_COL];
+    dijkstraAlgo(grid, START_NODE, FINAL_NODE);
+  }
   render() {
     if (this.state.grid.length === 0) {
       return (
         <div className="App">
-          <Navbar />
+          <nav className="navbar">
+            <div>
+              <h1>Pathfinder Visualizer</h1>
+            </div>
+            <div className="navitem">
+              <button className="btn" onClick={() => this.dijkstra()}>
+                <span>Visualize</span>
+              </button>
+            </div>
+          </nav>
           <Info />
           <Arena grid={this.state.grid} />
         </div>
@@ -35,7 +51,16 @@ class App extends React.Component {
     } else {
       return (
         <div className="App">
-          <Navbar />
+          <nav className="navbar">
+            <div>
+              <h1>Pathfinder Visualizer</h1>
+            </div>
+            <div className="navitem">
+              <button className="btn" onClick={() => this.dijkstra()}>
+                <span>Visualize</span>
+              </button>
+            </div>
+          </nav>
           <Info />
           <Arena grid={this.state.grid} />
         </div>

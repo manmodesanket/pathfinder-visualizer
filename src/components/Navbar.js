@@ -1,11 +1,8 @@
 import React from "react";
-import useDropdown from "./useDropdown";
-import dijkstra from "../algorithms/dijkstra";
+import dijkstraAlgo from "../algorithms/dijkstra";
 import "../css/navbar.css";
 
 const Navbar = () => {
-  const ALGORITHMS = ["Dijikstra", "Depth-First", "Breadth-First"];
-  const [algorithm, AlgorithmDropDown] = useDropdown("Dijiskstra", ALGORITHMS);
   return (
     <nav className="navbar">
       <div>

@@ -9,6 +9,42 @@ body {
   text-align: center;
 }
 
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  color: rgb(226, 238, 237);
+  width: 100%;
+  height: 80px;
+  background-color: rgb(4, 10, 44);
+}
+
+.navitem {
+  margin-left: 2em;
+}
+
+.btn {
+  height: 3em;
+  width: 8em;
+  background-color: aqua;
+  border: none;
+  border-radius: 0.5em;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: rgb(124, 236, 236);
+}
+
+.btn span {
+  font-size: 1.5em;
+}
+
+.dorpdown {
+  background-color: aqua;
+}
+
 .arena {
   margin-top: 4em;
   margin-left: 2em;
