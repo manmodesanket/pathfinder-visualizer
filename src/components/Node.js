@@ -7,6 +7,7 @@ class Node extends React.Component {
   }
 
   render() {
+    //console.log(this.props.node);
     const {
       row,
       col,

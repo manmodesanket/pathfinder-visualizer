@@ -1,5 +1,6 @@
 import React from "react";
 import useDropdown from "./useDropdown";
+import dijkstra from "../algorithms/dijkstra";
 import "../css/navbar.css";
 
 const Navbar = () => {
@@ -11,10 +12,7 @@ const Navbar = () => {
         <h1>Pathfinder Visualizer</h1>
       </div>
       <div className="navitem">
-        <AlgorithmDropDown />
-      </div>
-      <div className="navitem">
-        <button className="btn">
+        <button className="btn" onClick={() => dijkstra()}>
           <span>Visualize</span>
         </button>
       </div>
