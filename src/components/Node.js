@@ -16,8 +16,14 @@ class Node extends React.Component {
       isVisited,
       previousNull,
     } = this.props.node;
-    let class1 = isVisited ? "visited" : isStart ? "start" : isEnd ? "end" : "";
-    return <div className={`node ${class1}`}></div>;
+    let class1 = isVisited
+      ? "visited"
+      : isStart
+      ? "start"
+      : isEnd
+      ? "end"
+      : "unvisited";
+    return <div id={`node-${row}-${col}`} className={`node ${class1}`}></div>;
   }
 }
 
