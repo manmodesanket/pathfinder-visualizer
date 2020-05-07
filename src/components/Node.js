@@ -13,17 +13,25 @@ class Node extends React.Component {
       col,
       isStart,
       isEnd,
-      isVisited,
-      previousNull,
-    } = this.props.node;
-    let class1 = isVisited
-      ? "visited"
+      isWall,
+      onMouseDown,
+      onMouseUp,
+    } = this.props;
+    let class1 = isEnd
+      ? "node-finish"
       : isStart
-      ? "start"
-      : isEnd
-      ? "end"
-      : "unvisited";
-    return <div id={`node-${row}-${col}`} className={`node ${class1}`}></div>;
+      ? "node-start"
+      : isWall
+      ? "node-wall"
+      : "";
+    return (
+      <div
+        id={`node-${row}-${col}`}
+        className={`node ${class1}`}
+        onMouseDown={() => onMouseDown(row, col)}
+        onMouseUp={() => onMouseUp()}
+      ></div>
+    );
   }
 }
 

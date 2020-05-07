@@ -61,7 +61,7 @@ class App extends React.Component {
     const visitedNodesInOrder = dijkstraAlgo(grid, startNode, destNode);
     //console.log(visitedNodesInOrder);
     const nodesInShortestPathOrder = getNodesInShortestPathOrder(destNode);
-    console.log(nodesInShortestPathOrder);
+    //console.log(nodesInShortestPathOrder);
     this.animateDijkstra(visitedNodesInOrder, nodesInShortestPathOrder);
   }
   render() {
@@ -111,7 +111,6 @@ const getInitialGrid = () => {
       let node = {
         row: row,
         col: col,
-        isSelected: false,
         isStart: row === START_ROW && col === START_COL,
         isEnd: row === DEST_ROW && col === DEST_COL,
         isWall: false,

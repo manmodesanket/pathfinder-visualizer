@@ -4,11 +4,11 @@
   outline: 1px solid rgb(175, 216, 248);
 }
 
-.start {
+.node-start {
   background-color: green;
 }
 
-.end {
+.node-finish {
   background-color: blueviolet;
 }
 
