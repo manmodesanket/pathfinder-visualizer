@@ -15,6 +15,7 @@ class Node extends React.Component {
       isEnd,
       isWall,
       onMouseDown,
+      onMouseEnter,
       onMouseUp,
     } = this.props;
     let class1 = isEnd
@@ -29,6 +30,7 @@ class Node extends React.Component {
         id={`node-${row}-${col}`}
         className={`node ${class1}`}
         onMouseDown={() => onMouseDown(row, col)}
+        onMouseEnter={() => onMouseEnter(row, col)}
         onMouseUp={() => onMouseUp()}
       ></div>
     );
