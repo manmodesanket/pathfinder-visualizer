@@ -5,30 +5,55 @@ import "../css/arena.css";
 function Arena(props) {
   const [grid, setGrid] = useState([]);
   const [mouseIsPressed, setmouseIsPressed] = useState(false);
+  const [flag, setFlag] = useState(false);
+  const [start, setStart] = useState([5, 5]);
 
   const handleMouseDown = (row, col) => {
-    const newGrid = getNewGridWithWallToggled(grid, row, col);
-    setGrid(newGrid);
-    //setmouseIsPressed(!mouseIsPressed);
     setmouseIsPressed(true);
+    if (
+      !grid[row][col].isStart &&
+      !grid[row][col].isWall &&
+      !grid[row][col].isEnd
+    ) {
+      console.log(grid[row][col]);
+      const newGrid = getNewGridWithWallToggled(grid, row, col);
+      setGrid(newGrid);
+    } else if (grid[row][col].isStart) {
+      setFlag(true);
+      console.log(flag);
+    }
+    //setmouseIsPressed(!mouseIsPressed);
   };
 
-  const handleMouseEnterStart = (row, col) => {
-    if (mouseIsPressed) return;
+  const handleMouseStartDown = (row, col) => {
+    setmouseIsPressed(true);
+
+    if (!mouseIsPressed) {
+      console.log(grid[row][col]);
+      return;
+    }
     //const newGrid = getNewGridWithWallToggled(grid, row, col);
-    grid[row][col].isStart = true;
     console.log(grid[row][col]);
-    setGrid(grid);
   };
 
   const handleMouseEnter = (row, col) => {
     //console.log(mouseIsPressed);
     if (!mouseIsPressed) return;
-    const newGrid = getNewGridWithWallToggled(grid, row, col);
-    setGrid(newGrid);
+    else if (flag && mouseIsPressed) {
+      console.log(grid[row][col]);
+      grid[row][col].isStart = true;
+      grid[start[0]][start[1]].isStart = false;
+      setStart([row, col]);
+      console.log(start);
+      setGrid(grid);
+    } else if (!flag && mouseIsPressed) {
+      const newGrid = getNewGridWithWallToggled(grid, row, col);
+      setGrid(newGrid);
+    }
   };
   const handleMouseUp = () => {
     setmouseIsPressed(false);
+    setFlag(false);
   };
 
   useEffect(() => {
@@ -48,6 +73,7 @@ function Arena(props) {
           <div key={i} className="row">
             {row.map((node, j) => {
               const { row, col, isStart, isEnd, isWall, isVisited } = node;
+
               return (
                 <Node
                   key={j}
@@ -59,14 +85,11 @@ function Arena(props) {
                   isWall={isWall}
                   isVisited={isVisited}
                   mouseIsPressed={mouseIsPressed}
-                  onMouseDown={(row, col) => handleMouseDown(row, col)}
+                  onMouseDown={(row, col) => {
+                    handleMouseDown(row, col);
+                  }}
                   onMouseEnter={(row, col) => {
-                    if (!grid[row][col].isStart) {
-                      handleMouseEnter(row, col);
-                    } else {
-                      console.log("h");
-                      handleMouseEnterStart(row, col);
-                    }
+                    handleMouseEnter(row, col);
                   }}
                   onMouseUp={() => handleMouseUp()}
                 ></Node>
