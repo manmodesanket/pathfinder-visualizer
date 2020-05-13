@@ -4,9 +4,8 @@ body {
   margin: 0px;
 }
 
-.info {
-  width: 100%;
-  text-align: center;
+.nav {
+  background-color: rgb(4, 10, 44);
 }
 
 .navbar {
@@ -17,7 +16,7 @@ body {
   color: rgb(226, 238, 237);
   width: 100%;
   height: 80px;
-  background-color: rgb(4, 10, 44);
+  margin-left: 5em;
 }
 
 .navitem {
@@ -45,10 +44,58 @@ body {
   background-color: aqua;
 }
 
-.arena {
-  margin-top: 4em;
+.info {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 6em;
+  margin-top: 1.5em;
+}
+
+.info-item {
+  display: flex;
   margin-left: 2em;
-  margin-right: 2em;
+}
+
+.info-node {
+  width: 1.6em;
+  height: 1.6em;
+  outline: 1px solid rgb(175, 216, 248);
+  margin-left: 1em;
+}
+
+.title {
+  margin-left: 0.5em;
+  font-size: 1.5em;
+}
+
+.visited1 {
+  background-color: skyblue;
+}
+
+.visited2 {
+  background-color: blueviolet;
+}
+
+.path {
+  background-color: yellow;
+}
+
+.wall {
+  background-color: rgb(12, 53, 71);
+}
+
+.start {
+  background-color: green;
+}
+
+.end {
+  background-color: orange;
+}
+
+.arena {
+  margin-top: 2em;
+  margin-left: 7em;
+  margin-right: 4em;
 }
 
 .row {

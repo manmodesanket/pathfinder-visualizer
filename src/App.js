@@ -86,16 +86,18 @@ const App = () => {
   return (
     <GridContext.Provider value={[grid, setGrid]}>
       <div className="App">
-        <nav className="navbar">
-          <div>
-            <h1>Pathfinder Visualizer</h1>
+        <div className="nav">
+          <div className="navbar">
+            <div className="navitem">
+              <h2>Pathfinder Visualizer</h2>
+            </div>
+            <div className="navitem">
+              <button className="btn" onClick={() => dijkstra()}>
+                <span>Visualize</span>
+              </button>
+            </div>
           </div>
-          <div className="navitem">
-            <button className="btn" onClick={() => dijkstra()}>
-              <span>Visualize</span>
-            </button>
-          </div>
-        </nav>
+        </div>
         <Info />
         <Arena />
       </div>

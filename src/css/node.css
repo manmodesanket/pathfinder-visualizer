@@ -1,6 +1,6 @@
 .node {
-  width: 1.6em;
-  height: 1.6em;
+  width: 1.65em;
+  height: 1.65em;
   outline: 1px solid rgb(175, 216, 248);
 }
 
@@ -9,7 +9,7 @@
 }
 
 .node-finish {
-  background-color: blueviolet;
+  background-color: orange;
 }
 
 .node-visited {
