@@ -7,6 +7,7 @@ import {
   dijkstraAlgo,
   getNodesInShortestPathOrder,
 } from "./algorithms/dijkstra";
+import bfsAlgo from "./algorithms/bfs";
 import "./css/styles.css";
 
 const START_ROW = 5;
@@ -22,8 +23,10 @@ const App = () => {
   }, []);
 
   const animateDijkstra = (visitedNodesInOrder, nodesInShortestPathOrder) => {
+    console.log(nodesInShortestPathOrder);
     for (let i = 0; i <= visitedNodesInOrder.length; i++) {
       if (i === visitedNodesInOrder.length) {
+        console.log("hello");
         setTimeout(() => {
           animateShortestPath(nodesInShortestPathOrder);
         }, 10 * i);
@@ -38,7 +41,9 @@ const App = () => {
   };
 
   const animateShortestPath = (nodesInShortestPathOrder) => {
+    console.log(nodesInShortestPathOrder);
     for (let i = 0; i < nodesInShortestPathOrder.length; i++) {
+      console.log(i);
       setTimeout(() => {
         const node = nodesInShortestPathOrder[i];
         document.getElementById(`node-${node.row}-${node.col}`).className =
@@ -55,12 +60,24 @@ const App = () => {
     const visitedNodesInOrder = dijkstraAlgo(grid1, startNode, destNode);
     //console.log(visitedNodesInOrder);
     const nodesInShortestPathOrder = getNodesInShortestPathOrder(destNode);
-    //console.log(nodesInShortestPathOrder);
+    animateDijkstra(visitedNodesInOrder, nodesInShortestPathOrder);
+  };
+
+  const bfs = () => {
+    const grid1 = grid;
+    const s = getStart();
+    const e = getEnd();
+    const startNode = grid1[s[0]][s[1]];
+    const destNode = grid1[e[0]][e[1]];
+    const visitedNodesInOrder = bfsAlgo(grid1, startNode, destNode);
+    const nodesInShortestPathOrder = getNodesInShortestPathOrder(destNode);
+    console.log(visitedNodesInOrder);
+    console.log(nodesInShortestPathOrder);
     animateDijkstra(visitedNodesInOrder, nodesInShortestPathOrder);
   };
 
   const getStart = () => {
-    console.log("Hello");
+    //console.log("Hello");
     for (let row = 0; row < 20; row++) {
       for (let col = 0; col < 50; col++) {
         if (grid[row][col].isStart === true) {
@@ -72,7 +89,7 @@ const App = () => {
   };
 
   const getEnd = () => {
-    console.log("Hello");
+    //console.log("Hello");
     for (let row = 0; row < 20; row++) {
       for (let col = 0; col < 50; col++) {
         if (grid[row][col].isEnd === true) {
@@ -92,7 +109,7 @@ const App = () => {
               <h2>Pathfinder Visualizer</h2>
             </div>
             <div className="navitem">
-              <button className="btn" onClick={() => dijkstra()}>
+              <button className="btn" onClick={() => bfs()}>
                 <span>Visualize</span>
               </button>
             </div>

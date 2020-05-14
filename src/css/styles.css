@@ -57,15 +57,15 @@ body {
 }
 
 .info-node {
-  width: 1.6em;
-  height: 1.6em;
+  width: 1.3em;
+  height: 1.3em;
   outline: 1px solid rgb(175, 216, 248);
   margin-left: 1em;
 }
 
 .title {
   margin-left: 0.5em;
-  font-size: 1.5em;
+  font-size: 1.3em;
 }
 
 .visited1 {
