@@ -57,7 +57,7 @@ const App = () => {
     }
   };
   const dijkstra = () => {
-    console.log(work);
+    //console.log(work);
     if (work === false) {
       setWork(true);
       const grid1 = grid;
