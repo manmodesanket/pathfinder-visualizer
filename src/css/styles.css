@@ -9,18 +9,12 @@ body {
 }
 
 .navbar {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
   color: rgb(226, 238, 237);
-  width: 100%;
   height: 80px;
-  margin-left: 5em;
-}
-
-.navitem {
-  margin-left: 2em;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
 }
 
 .btn {
@@ -45,14 +39,12 @@ body {
 }
 
 .info {
-  display: flex;
-  flex-wrap: wrap;
   margin-left: 6em;
   margin-top: 1.5em;
 }
 
 .info-item {
-  display: flex;
+  display: inline-block;
   margin-left: 2em;
 }
 
@@ -61,11 +53,13 @@ body {
   height: 1.3em;
   outline: 1px solid rgb(175, 216, 248);
   margin-left: 1em;
+  display: inline-block;
 }
 
 .title {
   margin-left: 0.5em;
   font-size: 1.3em;
+  display: inline-block;
 }
 
 .visited1 {
@@ -93,9 +87,11 @@ body {
 }
 
 .arena {
-  margin-top: 2em;
-  margin-left: 7em;
-  margin-right: 4em;
+  position: absolute;
+  margin-top: 1em;
+  margin-left: 3.5em;
+  margin-right: 3.5em;
+  z-index: 1;
 }
 
 .row {

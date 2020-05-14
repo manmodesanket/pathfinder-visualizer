@@ -10,4 +10,4 @@
 
 - Tools: Parcel, ESLint, Prettier
 
-- [Hosted](https://pathfinder-89d1e.web.app/) here. This is not a final version.
+- Hosted [here](https://pathfinder-89d1e.web.app/). This is not a final version.

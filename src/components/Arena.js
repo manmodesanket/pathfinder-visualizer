@@ -20,6 +20,8 @@ const Arena = (props) => {
       //console.log(grid[row][col]);
       const newGrid = getNewGridWithWallToggled(grid, row, col);
       setGrid(newGrid);
+    } else if (grid[row][col].isWall) {
+      grid[row][col].isWall = false;
     } else if (grid[row][col].isStart) {
       setFlag(true);
       //console.log(flag);

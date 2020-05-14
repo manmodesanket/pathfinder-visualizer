@@ -1,15 +1,17 @@
 .node {
-  width: 1.5em;
-  height: 1.5em;
+  width: 25px;
+  height: 25px;
   outline: 1px solid rgb(175, 216, 248);
 }
 
 .node-start {
   background-color: green;
+  z-index: 1;
 }
 
 .node-finish {
   background-color: orange;
+  z-index: 1;
 }
 
 .node-visited {
