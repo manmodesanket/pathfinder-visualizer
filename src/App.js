@@ -132,7 +132,7 @@ const App = () => {
         <div className="nav">
           <div className="navbar">
             <div className="navitem">
-              <h2>Pathfinder Visualizer</h2>
+              <header>Pathfinder Visualizer</header>
             </div>
             <div className="navitem">
               <DropDown />

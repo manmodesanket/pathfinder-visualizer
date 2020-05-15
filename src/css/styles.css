@@ -11,10 +11,13 @@ body {
 .navbar {
   color: rgb(226, 238, 237);
   height: 80px;
-  display: flex;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
-  width: 100%;
+}
+
+header {
+  font-size: 1.5em;
 }
 
 .btn {
@@ -49,8 +52,8 @@ body {
 }
 
 .info-node {
-  width: 1.3em;
-  height: 1.3em;
+  width: 1em;
+  height: 1em;
   outline: 1px solid rgb(175, 216, 248);
   margin-left: 1em;
   display: inline-block;
@@ -58,7 +61,7 @@ body {
 
 .title {
   margin-left: 0.5em;
-  font-size: 1.3em;
+  font-size: 1em;
   display: inline-block;
 }
 
@@ -89,12 +92,14 @@ body {
 .arena {
   position: absolute;
   margin-top: 1em;
-  margin-left: 3.5em;
-  margin-right: 3.5em;
   z-index: 1;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 .row {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(50, 1fr);
 }
