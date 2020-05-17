@@ -37,8 +37,16 @@ const App = () => {
       }
       setTimeout(() => {
         const node = visitedNodesInOrder[i];
-        document.getElementById(`node-${node.row}-${node.col}`).className =
-          "node node-visited";
+        if (node.isStart) {
+          document.getElementById(`node-${node.row}-${node.col}`).className =
+            "node node-start node-visited";
+        } else if (node.isEnd) {
+          document.getElementById(`node-${node.row}-${node.col}`).className =
+            "node node-finish node-visited";
+        } else {
+          document.getElementById(`node-${node.row}-${node.col}`).className =
+            "node node-visited";
+        }
       }, 20 * i);
     }
   };
@@ -51,8 +59,16 @@ const App = () => {
       //console.log(i);
       setTimeout(() => {
         const node = nodesInShortestPathOrder[i];
-        document.getElementById(`node-${node.row}-${node.col}`).className =
-          "node node-shortest-path";
+        if (node.isStart) {
+          document.getElementById(`node-${node.row}-${node.col}`).className =
+            "node node-start node-shortest-path";
+        } else if (node.isEnd) {
+          document.getElementById(`node-${node.row}-${node.col}`).className =
+            "node node-finish node-shortest-path";
+        } else {
+          document.getElementById(`node-${node.row}-${node.col}`).className =
+            "node node-shortest-path";
+        }
       }, 50 * i);
     }
   };

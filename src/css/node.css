@@ -1,16 +1,22 @@
 .node {
-  width: 25px;
-  height: 25px;
-  outline: 1px solid rgb(175, 216, 248);
+  width: 23px;
+  height: 23px;
+  border: 1px solid rgb(175, 216, 248);
 }
 
 .node-start {
-  background-color: green;
+  background-image: url(../img/arrow.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
   z-index: 1;
 }
 
 .node-finish {
-  background-color: orange;
+  background-image: url(../img/flag.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
   z-index: 1;
 }
 
@@ -49,6 +55,7 @@
 
 .node-wall {
   background-color: rgb(12, 53, 71);
+  border: 1px solid rgb(12, 53, 71);
 }
 
 .node-shortest-path {
@@ -66,16 +73,19 @@
   0% {
     transform: scale(0.6);
     background-color: rgb(255, 254, 106);
+    border: 1px solid rgb(255, 254, 106);
   }
 
   50% {
     transform: scale(1.2);
     background-color: rgb(255, 254, 106);
+    border: 1px solid rgb(255, 254, 106);
   }
 
   100% {
     transform: scale(1);
     background-color: rgb(255, 254, 106);
+    border: 1px solid rgb(255, 254, 106);
   }
 }
 
@@ -83,7 +93,11 @@
   .node {
     width: 20px;
     height: 20px;
-    outline: 0.1px solid rgb(175, 216, 248);
+    border: 0.1px solid rgb(175, 216, 248);
+  }
+  .node-wall {
+    background-color: rgb(12, 53, 71);
+    border: 0.1px solid rgb(12, 53, 71);
   }
 }
 
@@ -91,7 +105,11 @@
   .node {
     width: 15px;
     height: 15px;
-    outline: 0.1px solid rgb(175, 216, 248);
+    border: 0.1px solid rgb(175, 216, 248);
+  }
+  .node-wall {
+    background-color: rgb(12, 53, 71);
+    border: 0.1px solid rgb(12, 53, 71);
   }
 }
 
@@ -99,6 +117,10 @@
   .node {
     width: 7px;
     height: 7px;
-    outline: 0.1px solid rgb(175, 216, 248);
+    border: 0.1px solid rgb(175, 216, 248);
+  }
+  .node-wall {
+    background-color: rgb(12, 53, 71);
+    border: 0.1px solid rgb(12, 53, 71);
   }
 }

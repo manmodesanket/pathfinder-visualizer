@@ -51,8 +51,8 @@ const Arena = (props) => {
   };
   const handleMouseUp = () => {
     setmouseIsPressed(false);
-    setFlag(false);
-    setFlag1(false);
+    setFlag(false); //falg for start
+    setFlag1(false); //flag for end
   };
 
   //console.log(grid);
