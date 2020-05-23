@@ -6,7 +6,7 @@ import useDropDown from "./components/useDropdown";
 import GridContext from "./GridContext";
 import {
   dijkstraAlgo,
-  getNodesInShortestPathOrder,
+  getNodesInShortestPathOrder
 } from "./algorithms/dijkstra";
 import bfsAlgo from "./algorithms/bfs";
 import "./css/styles.css";
@@ -51,7 +51,7 @@ const App = () => {
     }
   };
 
-  const animateShortestPath = (nodesInShortestPathOrder) => {
+  const animateShortestPath = nodesInShortestPathOrder => {
     //console.log(nodesInShortestPathOrder);
     const s = getStart();
     const e = getEnd();
@@ -128,18 +128,16 @@ const App = () => {
   };
 
   const clearPath = () => {
-    let grid1 = grid;
-    let visited = document.querySelectorAll(".node-visited");
-    let shortestPath = document.querySelectorAll(".node-shortest-path");
-    visited.forEach((node) => {
-      node.className = "node";
+    const newGrid = grid.map(row => {
+      return row.map(node => {
+        if (node.isVisited) {
+          node.isVisited = false;
+        }
+        return node;
+      });
     });
-    shortestPath.forEach((node) => {
-      node.className = "node";
-    });
-    grid1[5][5].isStart = true;
-    grid1[10][35].isEnd = true;
-    setGrid(grid1);
+
+    setGrid(newGrid);
   };
 
   return (
@@ -168,6 +166,11 @@ const App = () => {
               </button>
             </div>
           </div>
+          <div className="navitem">
+            <button onClick={() => clearPath()}>
+              <span>Clear</span>
+            </button>
+          </div>
         </div>
         <Info />
         <Arena />
@@ -189,7 +192,7 @@ const getInitialGrid = () => {
         isWall: false,
         isVisited: false,
         distance: Infinity,
-        previousNode: null,
+        previousNode: null
       };
       currentRow.push(node);
     }
