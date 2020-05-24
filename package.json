@@ -1,7 +1,7 @@
 {
-  "name": "beautiful-places",
+  "name": "pathfinder-visualizer",
   "version": "1.0.0",
-  "description": "Places I want to visit or love.",
+  "description": "Visualizing algorithms",
   "main": "index.js",
   "scripts": {
     "build": "parcel build src/index.html",
@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "use-force-update": "^1.0.7"
   }
 }

@@ -17,6 +17,8 @@ class Node extends React.Component {
       onMouseDown,
       onMouseEnter,
       onMouseUp,
+      isVisited,
+      clear,
     } = this.props;
     let class1 = isEnd
       ? "node-finish"
@@ -25,6 +27,9 @@ class Node extends React.Component {
       : isWall
       ? "node-wall"
       : "";
+    if (clear == 1) {
+      console.log(class1, isVisited, row, col);
+    }
     return (
       <div
         id={`node-${row}-${col}`}

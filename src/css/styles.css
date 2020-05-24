@@ -11,8 +11,9 @@ body {
 .navbar {
   color: rgb(226, 238, 237);
   height: 80px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
   align-items: center;
 }
 

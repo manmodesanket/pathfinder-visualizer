@@ -4,7 +4,7 @@ import "../css/arena.css";
 import GridContext from "../GridContext";
 
 const Arena = (props) => {
-  const [grid, setGrid] = useContext(GridContext);
+  const [grid, setGrid, clear] = useContext(GridContext);
   const [mouseIsPressed, setmouseIsPressed] = useState(false);
   const [flag, setFlag] = useState(false);
   const [flag1, setFlag1] = useState(false);
@@ -51,8 +51,21 @@ const Arena = (props) => {
   };
   const handleMouseUp = () => {
     setmouseIsPressed(false);
-    setFlag(false); //falg for start
+    setFlag(false); //flag for start
     setFlag1(false); //flag for end
+  };
+
+  const clearPath = () => {
+    const newGrid = grid.map((row) => {
+      return row.map((node) => {
+        if (node.isVisited) {
+          return { ...node, isVisited: false, previousNode: null };
+        }
+        return node;
+      });
+    });
+
+    setGrid(newGrid);
   };
 
   //console.log(grid);
@@ -64,35 +77,42 @@ const Arena = (props) => {
     );
   } else {
     return (
-      <div className="arena">
-        {grid.map((row, i) => (
-          <div key={i} className="row">
-            {row.map((node, j) => {
-              const { row, col, isStart, isEnd, isWall, isVisited } = node;
-
-              return (
-                <Node
-                  key={j}
-                  col={col}
-                  row={row}
-                  node={node}
-                  isEnd={isEnd}
-                  isStart={isStart}
-                  isWall={isWall}
-                  isVisited={isVisited}
-                  mouseIsPressed={mouseIsPressed}
-                  onMouseDown={(row, col) => {
-                    handleMouseDown(row, col);
-                  }}
-                  onMouseEnter={(row, col) => {
-                    handleMouseEnter(row, col);
-                  }}
-                  onMouseUp={() => handleMouseUp()}
-                ></Node>
-              );
-            })}
-          </div>
-        ))}
+      <div>
+        <div>
+          <button className="btn" onClick={() => clearPath()}>
+            <span>Clear</span>
+          </button>
+        </div>
+        <div className="arena">
+          {grid.map((row, i) => (
+            <div key={i} className="row">
+              {row.map((node, j) => {
+                const { row, col, isStart, isEnd, isWall, isVisited } = node;
+                return (
+                  <Node
+                    key={j}
+                    col={col}
+                    row={row}
+                    node={node}
+                    isEnd={isEnd}
+                    isStart={isStart}
+                    isWall={isWall}
+                    isVisited={isVisited}
+                    clear={clear}
+                    mouseIsPressed={mouseIsPressed}
+                    onMouseDown={(row, col) => {
+                      handleMouseDown(row, col);
+                    }}
+                    onMouseEnter={(row, col) => {
+                      handleMouseEnter(row, col);
+                    }}
+                    onMouseUp={() => handleMouseUp()}
+                  ></Node>
+                );
+              })}
+            </div>
+          ))}
+        </div>
       </div>
     );
   }
@@ -104,6 +124,18 @@ const getNewGridWithWallToggled = (grid, row, col) => {
   const newNode = {
     ...node,
     isWall: !node.isWall,
+  };
+  newGrid[row][col] = newNode;
+  return newGrid;
+};
+
+const getNewGridWithVisitedToggled = (grid, row, col) => {
+  const newGrid = grid.slice();
+  const node = newGrid[row][col];
+  const newNode = {
+    ...node,
+    isVisited: !node.isVisited,
+    previousNode: null,
   };
   newGrid[row][col] = newNode;
   return newGrid;

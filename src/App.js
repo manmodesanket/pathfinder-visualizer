@@ -6,7 +6,7 @@ import useDropDown from "./components/useDropdown";
 import GridContext from "./GridContext";
 import {
   dijkstraAlgo,
-  getNodesInShortestPathOrder
+  getNodesInShortestPathOrder,
 } from "./algorithms/dijkstra";
 import bfsAlgo from "./algorithms/bfs";
 import "./css/styles.css";
@@ -20,6 +20,7 @@ const App = () => {
   const [grid, setGrid] = useState([]);
   const [algo, DropDown] = useDropDown("Dijkstra", ["Dijskstra", "BFS"]);
   const [work, setWork] = useState(false);
+  const [clear, setClear] = useState(0);
   useEffect(() => {
     const newGrid = getInitialGrid();
     setGrid(newGrid);
@@ -51,7 +52,7 @@ const App = () => {
     }
   };
 
-  const animateShortestPath = nodesInShortestPathOrder => {
+  const animateShortestPath = (nodesInShortestPathOrder) => {
     //console.log(nodesInShortestPathOrder);
     const s = getStart();
     const e = getEnd();
@@ -128,20 +129,22 @@ const App = () => {
   };
 
   const clearPath = () => {
-    const newGrid = grid.map(row => {
-      return row.map(node => {
+    const newGrid = grid.map((row) => {
+      return row.map((node) => {
         if (node.isVisited) {
-          node.isVisited = false;
+          return { ...node, isVisited: false, previousNode: null };
         }
         return node;
       });
     });
 
     setGrid(newGrid);
+    setClear(1);
+    console.log(grid);
   };
 
   return (
-    <GridContext.Provider value={[grid, setGrid]}>
+    <GridContext.Provider value={[grid, setGrid, clear]}>
       <div className="App">
         <div className="nav">
           <div className="navbar">
@@ -151,6 +154,7 @@ const App = () => {
             <div className="navitem">
               <DropDown />
             </div>
+
             <div className="navitem">
               <button
                 className="btn"
@@ -165,11 +169,11 @@ const App = () => {
                 <span>Visualize</span>
               </button>
             </div>
-          </div>
-          <div className="navitem">
-            <button onClick={() => clearPath()}>
-              <span>Clear</span>
-            </button>
+            <div className="navitem">
+              <button className="btn" onClick={() => clearPath()}>
+                <span>Clear</span>
+              </button>
+            </div>
           </div>
         </div>
         <Info />
@@ -192,12 +196,24 @@ const getInitialGrid = () => {
         isWall: false,
         isVisited: false,
         distance: Infinity,
-        previousNode: null
+        previousNode: null,
       };
       currentRow.push(node);
     }
     newGrid.push(currentRow);
   }
+  return newGrid;
+};
+
+const getNewGridWithVisitedToggled = (grid, row, col) => {
+  const newGrid = grid.slice();
+  const node = newGrid[row][col];
+  const newNode = {
+    ...node,
+    isVisited: !node.isVisited,
+    previousNode: null,
+  };
+  newGrid[row][col] = newNode;
   return newGrid;
 };
 
